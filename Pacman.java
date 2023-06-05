@@ -25,6 +25,25 @@ public class Pacman extends Actor
     public void act()
     {
         animatePacman();
+        if(isTouching(Pellet.class)){
+            removeTouching(Pellet.class);
+        }
+        if(Greenfoot.isKeyDown("right")){
+            setRotation(0);
+            move(1);
+        }
+        if(Greenfoot.isKeyDown("left")){
+            setRotation(180);
+            move(1);
+        }
+        if(Greenfoot.isKeyDown("up")){
+            setRotation(270);
+            move(1);
+        }
+        if(Greenfoot.isKeyDown("down")){
+            setRotation(90);
+            move(1);
+        }
     }
     
     int animationCount = 1;
