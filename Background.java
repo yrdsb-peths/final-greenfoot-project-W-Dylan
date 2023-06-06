@@ -87,4 +87,8 @@ public class Background extends World
             addObject(new Tile0(), x, y);
         }
     }
+    
+    public int mapValue(int x, int y){
+        return map[y][x];
+    }
 }
