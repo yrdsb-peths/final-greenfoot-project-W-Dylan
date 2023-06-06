@@ -10,6 +10,7 @@ public class Pacman extends Actor
 {
     GreenfootImage[] pacman = new GreenfootImage[3];
     SimpleTimer animation = new SimpleTimer();
+    SimpleTimer movement = new SimpleTimer();
     /**
      * Act - do whatever the Pacman wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -20,19 +21,60 @@ public class Pacman extends Actor
         }
         setImage(pacman[0]);
         animation.mark();
+        movement.mark();
     }
     
     public void act()
     {
         animatePacman();
+        if(isTouching(Pellet.class)){
+            removeTouching(Pellet.class);
+        }
+        if(movement.millisElapsed() > 300){
+            moving();
+        }
     }
     
     int animationCount = 1;
-    public void animatePacman(){
+    private void animatePacman(){
         if(animation.millisElapsed() > 100){
             setImage(pacman[animationCount % 3]);
             animationCount++;
             animation.mark();
+        }
+    }
+    
+    private boolean isWall(int x, int y){
+        Background world = (Background) getWorld();
+        return world.mapValue(x, y) == 0;
+    }
+    
+    private int[] getCoord(){
+        int[] coord = {this.getX(), this.getY()};
+        return coord;
+    }
+    
+    private void moving(){
+        int[] coord = getCoord();
+        if(Greenfoot.isKeyDown("right") && isWall(coord[0] + 1, coord[1])){
+            setRotation(0);
+            move(1);
+            movement.mark();
+        }
+        if(Greenfoot.isKeyDown("left") && isWall(coord[0] - 1, coord[1])){
+            setRotation(180);
+            move(1);
+            movement.mark();
+        }
+        if(Greenfoot.isKeyDown("up") && isWall(coord[0], coord[1] - 1)){
+            setRotation(270);
+            move(1);
+            movement.mark();
+        }
+        if(Greenfoot.isKeyDown("down") && isWall(coord[0], coord[1] + 1)){
+            setRotation(90);
+            move(1);
+            movement.mark();
         }
     }
 }

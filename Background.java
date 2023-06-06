@@ -23,7 +23,7 @@ public class Background extends World
                     {1, 0, 7, 4, 8, 0, 5, 2, 2, 2, 2, 6, 0, 5, 2, 2, 6, 0, 5, 2, 2, 2, 2, 6, 0, 7, 4, 8, 0, 3},
                     {1, 0, 0, 0, 0, 0, 1, 9, 9, 9, 9, 3, 0, 1, 9, 9, 3, 0, 1, 9, 9, 9, 9, 3, 0, 0, 0, 0, 0, 3},
                     {1, 0, 5, 2, 6, 0, 7, 4, 4, 4, 4, 8, 0, 7, 4, 4, 8, 0, 7, 4, 4, 4, 4, 8, 0, 5, 2, 6, 0, 3},
-                    {1, 0, 1, 9, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 9, 3, 0, 3},
+                    {1, 0, 1, 9, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 9, 3, 0, 3},
                     {1, 0, 1, 9, 3, 0, 5, 2, 2, 6, 0, 5, 2, 2, 2, 2, 2, 2, 6, 0, 5, 2, 2, 6, 0, 1, 9, 3, 0, 3},
                     {1, 0, 1, 9, 3, 0, 1, 9, 9, 3, 0, 1, 9, 9, 9, 9, 9, 9, 3, 0, 1, 9, 9, 3, 0, 1, 9, 3, 0, 3},
                     {1, 0, 1, 9, 3, 0, 1, 9, 9, 3, 0, 1, 9, 9, 9, 9, 9, 9, 3, 0, 1, 9, 9, 3, 0, 1, 9, 3, 0, 3},
@@ -48,6 +48,8 @@ public class Background extends World
                 tileAddition(map[row][col], col, row);
             }
         }
+        
+        addObject(pacman, 15, 14);
     }
     
     public void tileAddition(int tileNum, int x, int y){
@@ -79,12 +81,12 @@ public class Background extends World
         if(tileNum == 8){
             addObject(new Tile8(), x, y);
         }
-        if(x == 15 && y == 14){
-            addObject(new Tile0(), x, y);
-            addObject(new Pacman(), x, y);
-        }
         else if(tileNum == 9){
             addObject(new Tile0(), x, y);
         }
+    }
+    
+    public int mapValue(int x, int y){
+        return map[y][x];
     }
 }
