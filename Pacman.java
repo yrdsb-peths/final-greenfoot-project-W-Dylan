@@ -61,17 +61,17 @@ public class Pacman extends Actor
             move(1);
             movement.mark();
         }
-        if(Greenfoot.isKeyDown("left") && isWall(coord[0] - 1, coord[1])){
+        else if(Greenfoot.isKeyDown("left") && isWall(coord[0] - 1, coord[1])){
             setRotation(180);
             move(1);
             movement.mark();
         }
-        if(Greenfoot.isKeyDown("up") && isWall(coord[0], coord[1] - 1)){
+        else if(Greenfoot.isKeyDown("up") && isWall(coord[0], coord[1] - 1)){
             setRotation(270);
             move(1);
             movement.mark();
         }
-        if(Greenfoot.isKeyDown("down") && isWall(coord[0], coord[1] + 1)){
+        else if(Greenfoot.isKeyDown("down") && isWall(coord[0], coord[1] + 1)){
             setRotation(90);
             move(1);
             movement.mark();
