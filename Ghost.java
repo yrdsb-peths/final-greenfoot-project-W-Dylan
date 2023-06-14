@@ -20,6 +20,9 @@ public class Ghost extends SmoothMover
     public void act()
     {
         moving();
+        if(this.isTouching(Pacman.class)){
+            this.removeTouching(Pacman.class);
+        }
     }
     
     public Ghost(){
