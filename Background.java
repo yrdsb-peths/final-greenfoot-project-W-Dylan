@@ -91,4 +91,10 @@ public class Background extends World
     public int mapValue(int x, int y){
         return map[y][x];
     }
+    
+    public void gameOver(){
+        removeObject(pacman);
+        removeObject(ghost);
+        Greenfoot.setWorld(new GameOver());
+    }
 }

@@ -21,7 +21,8 @@ public class Ghost extends SmoothMover
     {
         moving();
         if(this.isTouching(Pacman.class)){
-            this.removeTouching(Pacman.class);
+            Background world = (Background) getWorld();
+            world.gameOver();
         }
     }
     
