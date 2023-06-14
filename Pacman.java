@@ -6,7 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Pacman extends Actor
+public class Pacman extends SmoothMover
 {
     GreenfootImage[] pacman = new GreenfootImage[3];
     SimpleTimer animation = new SimpleTimer();
@@ -30,7 +30,7 @@ public class Pacman extends Actor
         if(isTouching(Pellet.class)){
             removeTouching(Pellet.class);
         }
-        if(movement.millisElapsed() > 300){
+        if(movement.millisElapsed() > 0){
             moving();
         }
     }
@@ -58,22 +58,22 @@ public class Pacman extends Actor
         int[] coord = getCoord();
         if(Greenfoot.isKeyDown("right") && isWall(coord[0] + 1, coord[1])){
             setRotation(0);
-            move(1);
+            move(0.05);
             movement.mark();
         }
         else if(Greenfoot.isKeyDown("left") && isWall(coord[0] - 1, coord[1])){
             setRotation(180);
-            move(1);
+            move(0.05);
             movement.mark();
         }
         else if(Greenfoot.isKeyDown("up") && isWall(coord[0], coord[1] - 1)){
             setRotation(270);
-            move(1);
+            move(0.05);
             movement.mark();
         }
         else if(Greenfoot.isKeyDown("down") && isWall(coord[0], coord[1] + 1)){
             setRotation(90);
-            move(1);
+            move(0.05);
             movement.mark();
         }
     }
