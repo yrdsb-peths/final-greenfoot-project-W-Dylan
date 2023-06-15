@@ -10,6 +10,7 @@ public class Background extends World
 {
     Pacman pacman = new Pacman();
     Ghost ghost = new Ghost();
+    SimpleTimer ghostTimer = new SimpleTimer();
     int[] [] map = {{5, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 6},
                     {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3},
                     {1, 0, 5, 2, 6, 0, 5, 2, 2, 2, 2, 6, 0, 5, 2, 2, 6, 0, 5, 2, 2, 2, 2, 6, 0, 5, 2, 6, 0, 3},
@@ -52,6 +53,13 @@ public class Background extends World
         
         addObject(pacman, 15, 14);
         addObject(ghost, 15, 10);
+    }
+    
+    public void act(){
+        if(ghostTimer.millisElapsed() > ghost.spawnRate){
+            addObject(new Ghost(), 15, 10);
+            ghostTimer.mark();
+        }
     }
     
     public void tileAddition(int tileNum, int x, int y){
