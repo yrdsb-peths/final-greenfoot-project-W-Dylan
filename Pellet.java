@@ -16,12 +16,4 @@ public class Pellet extends Actor
     public void act()
     {
     }
-    
-    public void addPoint(){
-        points++;
-    }
-    
-    public int givePoint(){
-        return points;
-    }
 }
