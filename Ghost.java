@@ -1,5 +1,4 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-import java.io. *;
 
 /**
  * Write a description of class Ghost here.
@@ -101,30 +100,21 @@ public class Ghost extends SmoothMover
     
     private String[] intersectionType(int[] coords){
         String[] result = new String[0];
-        System.out.println("||||");
         if(tileType(coords[0] + 1, coords[1]) == 0 && !facing.equals("left")){
             result = biggerStringArray(result);
-            System.out.println(facing);
             result[result.length - 1] = "right";
         }
         if(tileType(coords[0] - 1, coords[1]) == 0 && !facing.equals("right")){
             result = biggerStringArray(result);
-            System.out.println(facing);
             result[result.length - 1] = "left";
         }
         if(tileType(coords[0], coords[1] + 1) == 0 && !facing.equals("up")){
             result = biggerStringArray(result);
-            System.out.println(facing);
             result[result.length - 1] = "down";
         }
         if(tileType(coords[0], coords[1] - 1) == 0 && !facing.equals("down")){
             result = biggerStringArray(result);
-            System.out.println(facing);
             result[result.length - 1] = "up";
-        }
-        System.out.println("|||");
-        for(int i = 0; i < result.length; i++){ 
-            System.out.println(result[i]);
         }
         return result;
     }
