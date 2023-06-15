@@ -12,6 +12,7 @@ public class Ghost extends SmoothMover
     GreenfootImage[] ghost = new GreenfootImage[2];
     String facing;
     SimpleTimer moveTimer = new SimpleTimer();
+    static public int spawnRate = 3000;
     
     /**
      * Act - do whatever the Ghost wants to do. This method is called whenever
