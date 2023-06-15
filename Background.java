@@ -56,7 +56,7 @@ public class Background extends World
     }
     
     public void act(){
-        if(ghostTimer.millisElapsed() > ghost.spawnRate){
+        if(ghostTimer.millisElapsed() > ghost.spawnRate && Ghost.ghostNum < Ghost.maxGhost){
             addObject(new Ghost(), 15, 10);
             ghostTimer.mark();
         }
@@ -103,6 +103,6 @@ public class Background extends World
     public void gameOver(){
         removeObject(pacman);
         removeObject(ghost);
-        Greenfoot.setWorld(new GameOver());
+        Greenfoot.setWorld(new Shop());
     }
 }
