@@ -45,6 +45,8 @@ public class Background extends World
         // Create a new world with 30x25 cells with a cell size of 20x20 pixels.
         super(30, 25, 20); 
         
+        Ghost.ghostNum = 0;
+        
         for(int row = 0; row < map.length; row++){
             for(int col = 0; col < map[row].length; col++){
                 tileAddition(map[row][col], col, row);

@@ -23,6 +23,13 @@ public class Title extends World
         setBackground(blank);
         addObject(gameName, 15, 11);
         addObject(instructions, 15, 13);
+        
+        Ghost.spawnRate = 3000;
+        Ghost.maxGhost = 20;
+        Ghost.speed = 100;
+        Pellet.points = 0;
+        Pellet.pelletPoint = 1;
+        Pacman.movementRate = 0.05;
     }
     
     public void act(){
