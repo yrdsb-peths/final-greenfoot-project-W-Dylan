@@ -9,8 +9,6 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class GameOver extends World
 {
     GreenfootImage blank = new GreenfootImage("Wall.jpg");
-    Label gameOver = new Label("Game Over", 50);
-    Label score = new Label("Score: " + Pellet.points, 50);
     /**
      * Constructor for objects of class GameOver.
      * 
@@ -21,7 +19,5 @@ public class GameOver extends World
         super(30, 25, 20); 
         blank.scale(600, 500);
         setBackground(blank);
-        addObject(gameOver, 15, 11);
-        addObject(score, 15, 13);
     }
 }
