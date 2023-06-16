@@ -3,7 +3,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 /**
  * Write a description of class Shop here.
  * 
- * @author (your name) 
+ * @author (Dylan Windsor) 
  * @version (a version number or a date)
  */
 public class Shop extends World
