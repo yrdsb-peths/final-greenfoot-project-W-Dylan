@@ -29,7 +29,7 @@ public class Title extends World
         Ghost.speed = 100;
         Pellet.points = 0;
         Pellet.pelletPoint = 1;
-        Pacman.movementRate = 0.05;
+        Pacman.movementRate = 500;
     }
     
     public void act(){
