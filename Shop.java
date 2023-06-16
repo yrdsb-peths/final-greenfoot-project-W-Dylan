@@ -1,14 +1,15 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Shop here.
+ * The world in which the user will buy items to make the game easier for them
  * 
  * @author (Dylan Windsor) 
- * @version (a version number or a date)
+ * @version (June 15th 2023)
  */
 public class Shop extends World
 {
     Label introduction = new Label("Welcome to the Shop", 50);
+    Label exitShop = new Label("Press enter to exit", 20);
     
     Label maxGhostsInfo = new Label("Max number of Ghosts: " + Ghost.maxGhost, 16);
     Label spawnRateInfo = new Label("Ghost Spawn Rate: " + Ghost.spawnRate / 1000 + " secs", 16);
@@ -43,6 +44,7 @@ public class Shop extends World
         introduction.setFillColor(Color.BLACK);
         
         addObject(introduction, 14, 3);
+        addObject(exitShop, 34, 24);
         
         addObject(maxGhostsInfo, 34, 2);
         addObject(spawnRateInfo, 34, 4);
@@ -136,7 +138,7 @@ public class Shop extends World
         }
         if(Greenfoot.isKeyDown("p") && Pellet.points >= 100 && waitBuy.millisElapsed() > 1000){
             removeObject(cannotBuy);
-            Pellet.pelletPoint -= 2;
+            Pellet.pelletPoint += 1;
             Pellet.points -= 100;
             waitBuy.mark();
             removeObject(pelletWorthInfo);

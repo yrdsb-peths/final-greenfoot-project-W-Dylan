@@ -1,10 +1,10 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Pacman here.
+ * Class which creates Pacman, in which the user will be controlling
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author (Dylan Windsor) 
+ * @version (June 15th)
  */
 public class Pacman extends SmoothMover
 {
@@ -30,6 +30,7 @@ public class Pacman extends SmoothMover
         animatePacman();
         if(isTouching(Pellet.class)){
             Pellet.points++;
+            Pellet.finalScore++;
             removeTouching(Pellet.class);
         }
         if(movement.millisElapsed() > 0){

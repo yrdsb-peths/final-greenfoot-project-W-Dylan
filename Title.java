@@ -1,10 +1,10 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Title here.
+ * Titlescreen for the game
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author (Dylan Windsor) 
+ * @version (June 15th 2023)
  */
 public class Title extends World
 {

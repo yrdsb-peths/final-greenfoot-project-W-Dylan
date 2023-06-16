@@ -1,16 +1,17 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Background here.
+ * Main world which contains the main screen where the user will be playing in with a built in map and functionalities 
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author (Dylan Windsor) 
+ * @version (June 15th 2023)
  */
 public class Background extends World
 {
     Pacman pacman = new Pacman();
     Ghost ghost = new Ghost();
     SimpleTimer ghostTimer = new SimpleTimer();
+    GreenfootSound theme = new GreenfootSound("Pac-Man-Theme-Song.mp3");
     int[] [] map = {{5, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 6},
                     {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3},
                     {1, 0, 5, 2, 6, 0, 5, 2, 2, 2, 2, 6, 0, 5, 2, 2, 6, 0, 5, 2, 2, 2, 2, 6, 0, 5, 2, 6, 0, 3},
@@ -46,7 +47,7 @@ public class Background extends World
         super(30, 25, 20); 
         
         Ghost.ghostNum = 0;
-        
+        theme.play();
         for(int row = 0; row < map.length; row++){
             for(int col = 0; col < map[row].length; col++){
                 tileAddition(map[row][col], col, row);
@@ -61,6 +62,12 @@ public class Background extends World
         if(ghostTimer.millisElapsed() > ghost.spawnRate && Ghost.ghostNum < Ghost.maxGhost){
             addObject(new Ghost(), 15, 10);
             ghostTimer.mark();
+        }
+        if(Greenfoot.isKeyDown("q") && Greenfoot.isKeyDown("enter")){
+            Greenfoot.setWorld(new GameOver());
+        }
+        if(numberOfObjects() - (30 * 25) - Ghost.ghostNum - 1 == 0){
+            Greenfoot.setWorld(new GameOver());
         }
     }
     
