@@ -2,10 +2,10 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.io. *;
 
 /**
- * Write a description of class Ghost here.
+ * Thoe ghosts of pacman, this class is essentially a blueprint to create them
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author (Dylan Windsor) 
+ * @version (June 15th, 2023)
  */
 public class Ghost extends SmoothMover
 {
