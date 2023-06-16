@@ -29,7 +29,6 @@ public class Pacman extends SmoothMover
     {
         animatePacman();
         if(isTouching(Pellet.class)){
-            Pellet.points++;
             removeTouching(Pellet.class);
         }
         if(movement.millisElapsed() > 0){
