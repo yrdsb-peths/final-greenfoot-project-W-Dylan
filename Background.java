@@ -11,7 +11,7 @@ public class Background extends World
     Pacman pacman = new Pacman();
     Ghost ghost = new Ghost();
     SimpleTimer ghostTimer = new SimpleTimer();
-    GreenfootSound theme = new GreenfootSound("Pac-Man-Theme-Song.mp3");
+    static GreenfootSound theme = new GreenfootSound("Pac-Man-Theme-Song.mp3");
     int[] [] map = {{5, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 6},
                     {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3},
                     {1, 0, 5, 2, 6, 0, 5, 2, 2, 2, 2, 6, 0, 5, 2, 2, 6, 0, 5, 2, 2, 2, 2, 6, 0, 5, 2, 6, 0, 3},
