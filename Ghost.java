@@ -13,6 +13,9 @@ public class Ghost extends SmoothMover
     String facing;
     SimpleTimer moveTimer = new SimpleTimer();
     static public int spawnRate = 3000;
+    static public int maxGhost = 20;
+    static public int speed = 100;
+    static public int ghostNum = 0;
     
     /**
      * Act - do whatever the Ghost wants to do. This method is called whenever
@@ -32,6 +35,7 @@ public class Ghost extends SmoothMover
             ghost[i] = new GreenfootImage("ghostImages/ghostBody" + i + ".png");
         }
         setImage(ghost[0]);
+        ghostNum++;
         facing = "right";
         moveTimer.mark();
     }
@@ -48,25 +52,25 @@ public class Ghost extends SmoothMover
             haveMoved = false;
         }
         
-        if(facing.equals("right") && moveTimer.millisElapsed() > 100){
+        if(facing.equals("right") && moveTimer.millisElapsed() > speed){
             setRotation(0);
             move(1);
             moveTimer.mark();
             haveMoved = true;
         }
-        else if(facing.equals("left") && moveTimer.millisElapsed() > 100){
+        else if(facing.equals("left") && moveTimer.millisElapsed() > speed){
             setRotation(180);
             move(1);
             moveTimer.mark();
             haveMoved = true;
         }
-        else if(facing.equals("up") && moveTimer.millisElapsed() > 100){
+        else if(facing.equals("up") && moveTimer.millisElapsed() > speed){
             setRotation(270);
             move(1);
             moveTimer.mark();
             haveMoved = true;
         }
-        else if(facing.equals("down") && moveTimer.millisElapsed() > 100){
+        else if(facing.equals("down") && moveTimer.millisElapsed() > speed){
             setRotation(90);
             move(1);
             moveTimer.mark();

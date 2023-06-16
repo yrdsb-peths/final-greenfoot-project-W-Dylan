@@ -11,7 +11,7 @@ public class Pacman extends SmoothMover
     GreenfootImage[] pacman = new GreenfootImage[3];
     SimpleTimer animation = new SimpleTimer();
     SimpleTimer movement = new SimpleTimer();
-    static public double movementRate = 0.05;
+    static public int movementRate = 500;
     /**
      * Act - do whatever the Pacman wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -57,24 +57,24 @@ public class Pacman extends SmoothMover
     
     private void moving(){
         int[] coord = getCoord();
-        if(Greenfoot.isKeyDown("right") && isWall(coord[0] + 1, coord[1])){
+        if(Greenfoot.isKeyDown("right") && isWall(coord[0] + 1, coord[1]) && movement.millisElapsed() > movementRate){
             setRotation(0);
-            move(movementRate);
+            move(1);
             movement.mark();
         }
-        else if(Greenfoot.isKeyDown("left") && isWall(coord[0] - 1, coord[1])){
+        else if(Greenfoot.isKeyDown("left") && isWall(coord[0] - 1, coord[1]) && movement.millisElapsed() > movementRate){
             setRotation(180);
-            move(movementRate);
+            move(1);
             movement.mark();
         }
-        else if(Greenfoot.isKeyDown("up") && isWall(coord[0], coord[1] - 1)){
+        else if(Greenfoot.isKeyDown("up") && isWall(coord[0], coord[1] - 1) && movement.millisElapsed() > movementRate){
             setRotation(270);
-            move(movementRate);
+            move(1);
             movement.mark();
         }
-        else if(Greenfoot.isKeyDown("down") && isWall(coord[0], coord[1] + 1)){
+        else if(Greenfoot.isKeyDown("down") && isWall(coord[0], coord[1] + 1) && movement.millisElapsed() > movementRate){
             setRotation(90);
-            move(movementRate);
+            move(1);
             movement.mark();
         }
     }

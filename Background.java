@@ -45,6 +45,8 @@ public class Background extends World
         // Create a new world with 30x25 cells with a cell size of 20x20 pixels.
         super(30, 25, 20); 
         
+        Ghost.ghostNum = 0;
+        
         for(int row = 0; row < map.length; row++){
             for(int col = 0; col < map[row].length; col++){
                 tileAddition(map[row][col], col, row);
@@ -56,7 +58,7 @@ public class Background extends World
     }
     
     public void act(){
-        if(ghostTimer.millisElapsed() > ghost.spawnRate){
+        if(ghostTimer.millisElapsed() > ghost.spawnRate && Ghost.ghostNum < Ghost.maxGhost){
             addObject(new Ghost(), 15, 10);
             ghostTimer.mark();
         }
@@ -103,6 +105,6 @@ public class Background extends World
     public void gameOver(){
         removeObject(pacman);
         removeObject(ghost);
-        Greenfoot.setWorld(new GameOver());
+        Greenfoot.setWorld(new Shop());
     }
 }
